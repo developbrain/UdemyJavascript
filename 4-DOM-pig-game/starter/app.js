@@ -28,6 +28,7 @@ document.querySelector('.btn-roll').addEventListener("click", function(){
     let currentActiveVal = document.getElementById('current-'+activePlayer).innerText;
     //Set Dice Image
     document.querySelector('.dice').style.display = 'block';
+    //document.getElementById("myImg").src = "hackanm.gif";
     document.querySelector('.dice').attributes['src'].value = 'dice-'+dice+'.png';
     //If Dice Value is 1
     if(dice === 1)
@@ -52,10 +53,30 @@ document.querySelector('.btn-roll').addEventListener("click", function(){
 
 document.querySelector('.btn-hold').addEventListener("click", function(){
     let currentScore = score[activePlayer]+roundScore;
-    document.getElementById('score-'+activePlayer).innerText = currentScore;
-    document.getElementById('current-'+activePlayer).innerText = 0;
-    document.querySelector('.player-'+activePlayer+'-panel').classList.remove('active');
-    activePlayer = (activePlayer === 0) ? 1 : 0;
+    if(currentScore < 100)
+    {
+        score[activePlayer] = currentScore;
+        document.getElementById('score-'+activePlayer).innerText = currentScore;
+        document.getElementById('current-'+activePlayer).innerText = 0;
+        document.querySelector('.player-'+activePlayer+'-panel').classList.remove('active');
+        activePlayer = (activePlayer === 0) ? 1 : 0;
+        document.querySelector('.dice').style.display = 'none';
+        document.querySelector('.player-'+activePlayer+'-panel').classList.add('active');
+    }
+    else
+    {
+        let activePlayerWord = activePlayer+1;
+        alert('Player '+activePlayerWord+' won the Game !! Start a New One !');
+    }
+    
+});
+
+document.querySelector('.btn-new').addEventListener("click", function(){
+    score = [0,0];
+    roundScore = 0;
+    document.getElementById('current-0').innerText = 0;
+    document.getElementById('score-0').innerText = 0;
+    document.getElementById('current-1').innerText = 0;
+    document.getElementById('score-1').innerText = 0;
     document.querySelector('.dice').style.display = 'none';
-    document.querySelector('.player-'+activePlayer+'-panel').classList.add('active');
 });
