@@ -47,7 +47,7 @@ document.querySelector('.btn-roll').addEventListener("click", function(){
     {
         //Set currentActiveVal
         roundScore = parseInt(currentActiveVal)+parseInt(dice);
-        document.getElementById('current-'+activePlayer).innerText = parseInt(currentActiveVal)+parseInt(dice);
+        document.getElementById('current-'+activePlayer).innerText = roundScore;
     }
 });
 
