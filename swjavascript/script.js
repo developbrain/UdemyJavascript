@@ -173,5 +173,19 @@ console.log(person.fullName());
 //const diceRandVal = Math.floor(Math.random() * 6)+1;
 //console.log(diceRandVal);
 
-console.log(this);
-console.log(document);
+//console.log(this);
+//console.log(document);
+
+function funcName1()
+{
+    console.log('Inside Function Name1');
+}
+
+function funcName2()
+{
+    console.log('Inside Function Name2');
+}
+
+//
+document.querySelector('.btn-new1').addEventListener("click", funcName1());
+document.querySelector('.btn-new2').addEventListener("click", funcName2);
