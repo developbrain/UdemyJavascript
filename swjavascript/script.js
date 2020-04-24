@@ -176,6 +176,7 @@ console.log(person.fullName());
 //console.log(this);
 //console.log(document);
 
+/*
 function funcName1()
 {
     console.log('Inside Function Name1');
@@ -186,6 +187,53 @@ function funcName2()
     console.log('Inside Function Name2');
 }
 
-//
+//In this case funcName1() will always run irrespective of click event on the other case funcName2() will get called when click event will be called
 document.querySelector('.btn-new1').addEventListener("click", funcName1());
 document.querySelector('.btn-new2').addEventListener("click", funcName2);
+*/
+
+/*
+//Javascript Objcet Constructor and Prototype
+function Person (fname, lname, age, sex, job) {
+    this.firstName = fname;
+    this.lastName = lname;
+    this.year = age;
+    this.gender = sex;
+    this.occupation = job;
+    this.nationality = 'Indian';
+    this.fullNameFunc = function(){
+        return this.firstName+ ' ' + this.lastName;
+    };
+}
+Person.prototype.language = "Hindi";
+Person.prototype.getAllDetailsFunc = function() {
+    return 'My name is ' + this.firstName + " " + this.lastName + ' and I am ' + this.year + 'years old ' + this.gender + ', I am ' + this.nationality + ' national and i work as a ' + this.occupation ;
+  };
+
+var johnObject = new Person('John', 'Smith', 33, 'Male', 'Teacher');
+//for (const key in johnObject) {
+//    if (johnObject.hasOwnProperty(key)) {
+//        console.log(johnObject[key]);
+//    }
+//}
+console.log(johnObject.fullNameFunc());
+console.log(johnObject.valueOf());
+console.log(Object.getPrototypeOf(johnObject));
+console.log(johnObject.language);
+console.log(johnObject.getAllDetailsFunc());
+
+var markObject = new Person('Mark', 'Walls', 40, 'Male', 'Driver');
+//for (const key in markObject) {
+//    if (markObject.hasOwnProperty(key)) {
+//        console.log(markObject[key]);
+//    }
+//}
+markObject.language = 'English';
+markObject.nationality = 'British';
+console.log(markObject.fullNameFunc());
+console.log(markObject.valueOf());
+console.log(Object.getPrototypeOf(markObject));
+console.log(markObject.language);
+console.log(markObject.getAllDetailsFunc());
+*/
+
